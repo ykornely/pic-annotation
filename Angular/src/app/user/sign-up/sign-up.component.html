@@ -1,0 +1,7 @@
+<!-- #signUpForm is a local reference | two way data-binding: [(ngModel)]="userService.selectedUser.fullName"-->
+<form #signUpForm="ngForm">
+<input type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"> <!-- this property is injected inside the corresponding .ts file (sign-up.component.ts). selectedUser is a type of model (in user.service.ts). -->
+<input type="text" #email="ngModel" [(ngModel)]="userService.selectedUser.email" name="email" placeholder="Email">
+<input type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Password">
+<input type="submit" value="Sign Up">
+</form>
