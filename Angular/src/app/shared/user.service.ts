@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from '../../environments/environment';
 import { User } from './user.model';
 
 @Injectable({
@@ -14,5 +16,9 @@ export class UserService {
     password: ''
   };
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  postUser(user: User) {
+    return this.http.post(environment.apiBaseUrl+'/register' , user); // reach for the user.controller.js on server side, which is responsible to adding new user to the database. The used link is in environment.ts
+  }
 }
