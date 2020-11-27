@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http'; // corresponding with u
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { SignUpComponent } from './user/sign-up/sign-up.component';
+import { SignInComponent } from './user/sign-in/sign-in.component';
 // routes (exported in routes.ts)
 import { appRoutes } from './routes';
 
@@ -16,7 +17,8 @@ import { appRoutes } from './routes';
   declarations: [
     AppComponent,
     UserComponent,
-    SignUpComponent
+    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

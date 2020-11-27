@@ -1,4 +1,7 @@
 <!-- #signUpForm is a local reference | two way data-binding: [(ngModel)]="userService.selectedUser.fullName"-->
+<div>
+  <img src="/assets/img/users.png" id="icon" alt="User Icon" />
+</div>
 <form #signUpForm="ngForm" (ngSubmit)="signUpForm.valid && onSubmit(signUpForm)">
     <input type="text" #fullName="ngModel" [(ngModel)]="userService.selectedUser.fullName" name="fullName" placeholder="Full Name"
     required  [ngClass]="{'invalid-textbox' :signUpForm.submitted && !fullName.valid }"> <!-- this property is injected inside the corresponding .ts file (sign-up.component.ts). selectedUser is a type of model (in user.service.ts). -->
