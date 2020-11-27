@@ -7,7 +7,7 @@ import { UserService } from '../../shared/user.service';
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  providers: [UserService]
+  // providers: [UserService] // We added it in app.module.ts, so we don't need it anymore here.
 })
 
 // now we have access to user.service's selected user
