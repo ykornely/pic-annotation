@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; // corresponding with user.service.ts
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; // corresponding with user.service.ts
 // components
 // import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,7 @@ import { appRoutes } from './routes';
 import { UserService } from './shared/user.service';
 // other
 import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 
 @NgModule({
@@ -31,7 +32,11 @@ import { AuthGuard } from './auth/auth.guard';
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [UserService, AuthGuard],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  },AuthGuard,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
