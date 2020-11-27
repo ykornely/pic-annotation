@@ -13,6 +13,8 @@ import { SignInComponent } from './user/sign-in/sign-in.component';
 // routes (exported in routes.ts)
 import { appRoutes } from './routes';
 import { UserService } from './shared/user.service';
+// other
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { UserService } from './shared/user.service';
     RouterModule.forRoot(appRoutes),
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
