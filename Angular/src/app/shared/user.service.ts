@@ -23,16 +23,16 @@ export class UserService {
   // http methods
 
   postUser(user: User) {
-    return this.http.post(environment.apiBaseUrl+'/register' , user, this.noAuthHeader); // reach for the user.controller.js on server side, which is responsible to adding new user to the database. The used link is in environment.ts
-  }
+    return this.http.post("http://localhost:3000/api" + '/register' , user, this.noAuthHeader); // reach for the user.controller.js on server side, which is responsible to adding new user to the database. The used link is in environment.ts
+  } //"http://localhost:3000/api" instead of 'environment.apiBaseUrl'
 
   login(authCredentials) { // with this function we make a login request into /authenticate URI into our node.js API and we'll send userCredentials (email and password). In return to this request we expect a JWT token. This function is used in sign-in.component.ts's onSubmit.
-    return this.http.post(environment.apiBaseUrl + '/authenticate', authCredentials, this.noAuthHeader);
+    return this.http.post("http://localhost:3000/api" + '/authenticate', authCredentials, this.noAuthHeader); // "http://localhost:3000/api" instead of 'environment.apiBaseUrl'
   }
 
   getUserProfile() {
-    return this.http.get(environment.apiBaseUrl + '/userProfile');
-  }
+    return this.http.get("http://localhost:3000/api" + '/userProfile');
+  } //"http://localhost:3000/api" instead of 'environment.apiBaseUrl'
 
   // helper methods
 
